@@ -19,7 +19,7 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 
 # Load zplug
-source $ZPLUG_HOME/init.zsh
+source "$HOME/.zplug/init.zsh"
 
 # Oh-my-zsh plugins
 zplug "plugins/git", from:oh-my-zsh

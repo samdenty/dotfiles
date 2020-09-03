@@ -1,3 +1,4 @@
-# faster git server communication.
-# like a LOT faster. https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html
-git config protocol.version 2
+# Download and install zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+source macos.zsh

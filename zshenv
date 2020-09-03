@@ -13,8 +13,6 @@ export HISTSIZE=32768
 export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.zsh_history
 
-export ZPLUG_HOME=/usr/local/opt/zplug
-
 # Python path
 export PYTHONUSERBASE=~/Library
 

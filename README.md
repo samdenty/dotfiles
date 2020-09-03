@@ -4,7 +4,7 @@
 git clone https://github.com/samdenty/dotfiles ~/dotfiles
 
 brew install rcm
-env RCRC=$HOME/dotfiles/rcrc rc
+env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
 # Update
