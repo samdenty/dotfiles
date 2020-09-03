@@ -97,5 +97,13 @@ done
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 
+# Reload the shell when dotfiles are updated
+alias rcup="rcup && reload"
+
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# here's LS_COLORS
+# github.com/trapd00r/LS_COLORS
+command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
+eval "$(gdircolors -b ~/.dircolors)"
