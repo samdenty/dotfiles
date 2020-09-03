@@ -1,0 +1,101 @@
+#!/usr/bin/env zsh
+
+# Hub aliases
+eval $(hub alias -s)
+
+# Direnv aliases
+eval "$(direnv hook zsh)"
+
+# thefuck aliases
+eval $(thefuck --alias)
+
+# Update everything
+alias update="sudo softwareupdate -i -a; zplug update; brew update; brew upgrade; brew cleanup; yarn global upgrade"
+
+# Easier navigation:
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+
+# Shortcuts
+alias d="cd ~/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Projects"
+
+# List only directories
+alias lsd="ls | grep --color=never '^d'"
+
+# Enable syntax highlighting for cat
+alias cat="bat"
+
+# Shorter VSCode alias
+alias code="code-insiders"
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Enable aliases to be ndb’ed
+alias ndb='ndb '
+
+# Google Chrome
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd >/dev/null || alias hd="hexdump -C"
+
+# macOS has no `md5sum`, so use `md5` as a fallback
+command -v md5sum >/dev/null || alias md5sum="md5"
+
+# macOS has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum >/dev/null || alias sha1sum="shasum"
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Disable Spotlight
+alias spotoff="sudo mdutil -a -i off"
+# Enable Spotlight
+alias spoton="sudo mdutil -a -i on"
+
+# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
+alias plistbuddy="/usr/libexec/PlistBuddy"
+
+# Airport CLI alias
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+  alias "${method}"="lwp-request -m '${method}'"
+done
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
