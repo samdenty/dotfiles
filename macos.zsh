@@ -293,3 +293,10 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+# enable touchid for sudo authentication
+LINE="auth       sufficient     pam_tid.so"
+
+if ! grep -q $LINE /etc/pam.d/sudo; then
+  gsed -i "1s/^/$LINE\n/" /etc/pam.d/sudo
+fi
