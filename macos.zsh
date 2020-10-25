@@ -52,6 +52,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 25
 #    power failure.
 sudo pmset -c hibernatemode 0
 
+# Disable sleep when lid is closed
+sudo pmset -a disablesleep 1
+
 # Always use dedicated graphics when plugged in
 sudo pmset -c gpuswitch 1
 
