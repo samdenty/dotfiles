@@ -10,7 +10,7 @@ eval "$(direnv hook zsh)"
 eval $(thefuck --alias)
 
 # Update everything
-alias update="zplug update; brew update; brew upgrade; brew cleanup; yarn global upgrade; sudo softwareupdate -i -a;"
+alias update="zplug update; brew update; brew upgrade; brew cleanup; mas upgrade; yarn global upgrade; sudo softwareupdate -i -a;"
 
 # Easier navigation:
 alias ..="cd .."

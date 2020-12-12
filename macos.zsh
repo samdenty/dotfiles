@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Prefer tabs when opening documents: 'always', 'fullscreen', 'manual'
+defaults write NSGlobalDomain AppleWindowTabbingMode -string 'always'
+
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
@@ -51,9 +54,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 25
 # 3: Copy RAM to disk so the system state can still be restored in case of a
 #    power failure.
 sudo pmset -c hibernatemode 0
-
-# Disable sleep when lid is closed
-sudo pmset -a disablesleep 1
 
 # Always use dedicated graphics when plugged in
 sudo pmset -c gpuswitch 1
@@ -301,5 +301,5 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 LINE="auth       sufficient     pam_tid.so"
 
 if ! grep -q $LINE /etc/pam.d/sudo; then
-  gsed -i "1s/^/$LINE\n/" /etc/pam.d/sudo
+  sudo gsed -i "1s/^/$LINE\n/" /etc/pam.d/sudo
 fi

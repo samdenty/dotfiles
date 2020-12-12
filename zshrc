@@ -48,6 +48,8 @@ source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Use menu for zsh completions
 zstyle ':completion:*' menu select
+# case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
@@ -60,3 +62,4 @@ fi
 zplug load
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
