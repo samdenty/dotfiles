@@ -49,6 +49,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
+# Make TextEdit open new document by default
+defaults write -g NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
 # Hibernation mode
 # 0: Disable hibernation (speeds up entering sleep mode)
 # 3: Copy RAM to disk so the system state can still be restored in case of a

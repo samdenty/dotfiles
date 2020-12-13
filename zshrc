@@ -8,8 +8,7 @@ setopt \
   HIST_IGNORE_ALL_DUPS \
   AUTO_CD \
   AUTO_PUSHD \
-  PUSHD_SILENT \
-  SHARE_HISTORY
+  PUSHD_SILENT
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
