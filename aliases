@@ -97,8 +97,11 @@ done
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 
+# Run setup script
+alias setup="$(dirname "$0")/.setup-mac"
+
 # Reload the shell when dotfiles are updated
-alias rcup="rcup && reload"
+alias rcup="rcup && setup && reload"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
