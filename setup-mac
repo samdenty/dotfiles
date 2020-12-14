@@ -73,6 +73,9 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Show Quit in Finder menu
+defaults write com.apple.finder QuitMenuItem -bool true
+
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
@@ -138,6 +141,9 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Scroll up on dock icons to open expose / stacks
+defaults write com.apple.dock scroll-to-open -bool true
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
