@@ -95,7 +95,7 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 done
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec ${SHELL} -l"
+alias reload="source ~/.zshrc"
 
 # Run setup script
 alias setup="$(dirname "$0")/.setup-mac"
@@ -105,6 +105,9 @@ alias rcup="rcup && setup && reload"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Reboot the machine
+alias reboot="sudo shutdown -r now"
 
 # here's LS_COLORS
 # github.com/trapd00r/LS_COLORS
