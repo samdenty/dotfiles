@@ -1,3 +1,5 @@
+emulate zsh -c "$(direnv export zsh)"
+
 # Load powerlevel10k instantprompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
