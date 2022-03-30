@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file
+eval "$(fig init zsh pre)"
+
 emulate zsh -c "$(direnv export zsh)"
 
 # Load powerlevel10k instantprompt
@@ -20,7 +23,8 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 
 # Load zplug
-source "$HOME/.zplug/init.zsh"
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 # Oh-my-zsh plugins
 zplug "plugins/git", from:oh-my-zsh
@@ -64,3 +68,6 @@ zplug load
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"

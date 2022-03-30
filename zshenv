@@ -1,3 +1,5 @@
+path+=('~/.cargo/bin' '~/.local/bin')
+
 # Make VSCode the default editor
 export EDITOR="code-insiders"
 
@@ -16,8 +18,12 @@ export HISTFILE=~/.zsh_history
 # Python path
 export PYTHONUSERBASE=~/Library
 
+# Wakatime path
+export ZSH_WAKATIME_BIN="/usr/local/bin/wakatime-cli"
+
 # Enable Git for iam4x/zsh-iterm-touchbar
 export TOUCHBAR_GIT_ENABLED=true
 
 # Make zsh always display actual casing
 export CASE_SENSITIVE=true
+. "$HOME/.cargo/env"
