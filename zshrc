@@ -45,7 +45,6 @@ zplug "DarrinTisdale/zsh-aliases-exa"
 zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
-# zplug "lukechilds/zsh-nvm"
 zplug "djui/alias-tips"
 zplug "sobolevn/wakatime-zsh-plugin"
 

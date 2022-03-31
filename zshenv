@@ -1,5 +1,3 @@
-path+=('~/.cargo/bin' '~/.local/bin')
-
 # Make VSCode the default editor
 export EDITOR="code-insiders"
 
@@ -15,6 +13,8 @@ export HISTSIZE=32768
 export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.zsh_history
 
+# Volta path
+export VOLTA_HOME=~/.volta
 # Python path
 export PYTHONUSERBASE=~/Library
 
@@ -27,3 +27,5 @@ export TOUCHBAR_GIT_ENABLED=true
 # Make zsh always display actual casing
 export CASE_SENSITIVE=true
 . "$HOME/.cargo/env"
+
+path+=('~/.cargo/bin' '~/.local/bin' $VOLTA_HOME/bin)
