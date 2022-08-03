@@ -15,6 +15,7 @@ export HISTFILE=~/.zsh_history
 
 # Volta path
 export VOLTA_HOME=~/.volta
+export NODE_PATH=~/.config/yarn/global/node_modules
 # Python path
 export PYTHONUSERBASE=~/Library
 
@@ -28,4 +29,4 @@ export TOUCHBAR_GIT_ENABLED=true
 export CASE_SENSITIVE=true
 . "$HOME/.cargo/env"
 
-path+=('~/.cargo/bin' '~/.local/bin' $VOLTA_HOME/bin)
+path+=('../../../../../node_modules/.bin' '../../../../node_modules/.bin' '../../../node_modules/.bin' '../../node_modules/.bin' '../node_modules/.bin' 'node_modules/.bin' '~/.cargo/bin' '~/.local/bin' '/usr/local/opt/mysql-client/bin' $VOLTA_HOME/bin)
