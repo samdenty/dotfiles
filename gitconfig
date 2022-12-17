@@ -69,6 +69,8 @@
 
 	# Show the user email for the current repository.
 	whoami = config user.email
+	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 
 [apply]
 
@@ -102,12 +104,13 @@
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+	ui = true
 
 [color "branch"]
 
@@ -117,10 +120,13 @@
 
 [color "diff"]
 
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+	meta = 11
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	func = 146 bold
+	commit = yellow bold
+	whitespace = red reverse
 
 [color "status"]
 
@@ -138,6 +144,7 @@
 	# Detect copies as well as renames.
 	renames = copies
 
+	tool = Kaleidoscope
 [diff "bin"]
 
 	# Use `hexdump` to diff binary files.
@@ -153,6 +160,7 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
+	tool = Kaleidoscope
 [push]
 
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
@@ -198,3 +206,20 @@
 	required = true
 [gpg]
 	program = gpg
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+	trustExitCode = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22

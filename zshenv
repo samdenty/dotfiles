@@ -18,6 +18,7 @@ export VOLTA_HOME=~/.volta
 export NODE_PATH=~/.config/yarn/global/node_modules
 # Python path
 export PYTHONUSERBASE=~/Library
+export DYLD_LIBRARY_PATH=/Library/PostgreSQL/9.3/lib:$DYLD_LIBRARY_PATH
 
 # Wakatime path
 export ZSH_WAKATIME_BIN="/usr/local/bin/wakatime-cli"
@@ -29,4 +30,15 @@ export TOUCHBAR_GIT_ENABLED=true
 export CASE_SENSITIVE=true
 . "$HOME/.cargo/env"
 
-path+=('../../../../../node_modules/.bin' '../../../../node_modules/.bin' '../../../node_modules/.bin' '../../node_modules/.bin' '../node_modules/.bin' 'node_modules/.bin' '~/.cargo/bin' '~/.local/bin' '/usr/local/opt/mysql-client/bin' $VOLTA_HOME/bin)
+path+=(
+  '../../../../../node_modules/.bin'
+  '../../../../node_modules/.bin'
+  '../../../node_modules/.bin'
+  '../../node_modules/.bin'
+  '../node_modules/.bin'
+  'node_modules/.bin'
+  '~/.cargo/bin'
+  '~/.local/bin'
+  '/usr/local/opt/mysql-client/bin'
+  $VOLTA_HOME/bin
+)

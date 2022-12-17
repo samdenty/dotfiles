@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Fig pre block. Keep at the top of this file
 eval "$(fig init zsh pre)"
 
@@ -77,5 +77,7 @@ zplug load
 export BUN_INSTALL="/Users/samdenty/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+eval "$(rbenv init - zsh)"
+
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
