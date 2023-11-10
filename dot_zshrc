@@ -28,6 +28,8 @@ done;
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Oh-my-zsh plugins
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
@@ -49,10 +51,20 @@ zplug "zsh-users/zsh-completions"
 zplug "djui/alias-tips"
 zplug "sobolevn/wakatime-zsh-plugin"
 zplug "unixorn/fzf-zsh-plugin"
+zplug "aloxaf/fzf-tab"
 
 source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Use menu for zsh completions
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':completion:*' menu select
 # case insensitive path-completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -68,7 +80,6 @@ fi
 zplug load
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # bun completions
 [ -s "/Users/samdenty/.bun/_bun" ] && source "/Users/samdenty/.bun/_bun"
@@ -79,7 +90,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(rbenv init - zsh)"
 
-eval "$(atuin init zsh)"
 eval "$(atuin init zsh)"
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
