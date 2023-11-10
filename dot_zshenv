@@ -1,0 +1,49 @@
+# Make VSCode the default editor
+export EDITOR="code-insiders"
+
+export NPM_TOKEN="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"
+
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768'
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy'
+
+# Increase zsh history size. Allow 32³ entries; the default is 500.
+export HISTSIZE=32768
+export SAVEHIST=$HISTSIZE
+export HISTFILE=~/.zsh_history
+
+export NODE_PATH=~/.config/yarn/global/node_modules
+# Python path
+export PYTHONUSERBASE=~/Library
+export DYLD_LIBRARY_PATH=/Library/PostgreSQL/9.3/lib:$DYLD_LIBRARY_PATH
+
+# Wakatime path
+export ZSH_WAKATIME_BIN="/usr/local/bin/wakatime-cli"
+
+# Enable Git for iam4x/zsh-iterm-touchbar
+export TOUCHBAR_GIT_ENABLED=true
+
+# Make zsh always display actual casing
+export CASE_SENSITIVE=true
+. "$HOME/.cargo/env"
+
+export GPG_TTY=$(tty)
+
+export PYENV_ROOT="$HOME/.pyenv"
+
+path+=(
+  '../../../../../node_modules/.bin'
+  '../../../../node_modules/.bin'
+  '../../../node_modules/.bin'
+  '../../node_modules/.bin'
+  '../node_modules/.bin'
+  'node_modules/.bin'
+  '~/.cargo/bin'
+  '~/.local/bin'
+  '/usr/local/opt/mysql-client/bin'
+  '~/.rbenv/bin'
+  $PYENV_ROOT/shims
+)
