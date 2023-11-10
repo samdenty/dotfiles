@@ -29,3 +29,30 @@ capture() {
         }
     '
 }
+
+is_git() {
+  [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
+}
+
+set_name() {
+  local CMD=$2
+
+  local "BETTER_PWD"
+  if is_git; then
+    BETTER_PWD=$(git rev-parse --show-toplevel)
+  else
+    BETTER_PWD=$(PWD)
+  fi
+
+  BETTER_PWD="${BETTER_PWD#"$HOME/Projects"/}"
+  BETTER_PWD="${BETTER_PWD#"$HOME"/~}"
+
+  if [ -z "$CMD" ]; then
+    echo -ne "\033]0;${BETTER_PWD##*/}\007"
+  else
+    echo -ne "\033]0;${BETTER_PWD##*/} (${CMD})\007"
+  fi
+}
+
+precmd_functions+=(set_name)
+preexec_functions+=(set_name)

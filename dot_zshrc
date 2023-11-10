@@ -3,6 +3,8 @@
 # Fig pre block. Keep at the top of this file
 eval "$(fig init zsh pre)"
 
+DISABLE_AUTO_TITLE="true"
+
 emulate zsh -c "$(direnv export zsh)"
 
 # Load powerlevel10k instantprompt
