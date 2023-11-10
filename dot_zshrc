@@ -48,6 +48,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "djui/alias-tips"
 zplug "sobolevn/wakatime-zsh-plugin"
+zplug "unixorn/fzf-zsh-plugin"
 
 source "${HOME}/.iterm2_shell_integration.zsh"
 

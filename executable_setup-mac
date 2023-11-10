@@ -2,6 +2,8 @@
 
 echo Setting MacOS preferences...
 
+defaults write "com.apple.dock" "showAppExposeGestureEnabled" '1'
+
 # Prefer tabs when opening documents: 'always', 'fullscreen', 'manual'
 defaults write NSGlobalDomain AppleWindowTabbingMode -string 'always'
 

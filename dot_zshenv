@@ -16,6 +16,7 @@ export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.zsh_history
 
 export NODE_PATH=~/.config/yarn/global/node_modules
+export NODE_GYP_FORCE_PYTHON=/opt/homebrew/bin/python3.10
 # Python path
 export PYTHONUSERBASE=~/Library
 export DYLD_LIBRARY_PATH=/Library/PostgreSQL/9.3/lib:$DYLD_LIBRARY_PATH
@@ -47,5 +48,6 @@ path+=(
   '~/.local/bin'
   '/usr/local/opt/mysql-client/bin'
   '~/.rbenv/bin'
+  $(/opt/homebrew/bin/go env GOPATH)/bin
   $PYENV_ROOT/shims
 )
