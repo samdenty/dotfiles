@@ -38,7 +38,6 @@ zplug "plugins/yarn", from:oh-my-zsh # yarn aliases
 # Theme
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 
-zplug "iam4x/zsh-iterm-touchbar"
 zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "hlissner/zsh-autopair", defer:2
 zplug "changyuheng/zsh-interactive-cd"

@@ -34,6 +34,8 @@ export GPG_TTY=$(tty)
 
 export PYENV_ROOT="$HOME/.pyenv"
 
+export ZSH_WAKATIME_BIN="$HOME/.wakatime/wakatime-cli"
+
 path+=(
   '../../../../../node_modules/.bin'
   '../../../../node_modules/.bin'
