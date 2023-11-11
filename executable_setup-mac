@@ -316,3 +316,28 @@ LINE="auth       sufficient     pam_tid.so"
 if ! grep -q $LINE /etc/pam.d/sudo; then
   sudo gsed -i "1s/^/$LINE\n/" /etc/pam.d/sudo
 fi
+
+sudo bash <<EOF
+cat <<EOT >/Library/LaunchDaemons/version-checker.plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>version-checker</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/samdenty/.post-upgrade</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>60</integer>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+EOT
+EOF
+
+sudo launchctl unload /Library/LaunchDaemons/version-checker.plist >/dev/null 2>&1 || true
+
+sudo launchctl load /Library/LaunchDaemons/version-checker.plist

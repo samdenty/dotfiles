@@ -10,7 +10,7 @@ eval "$(direnv hook zsh)"
 eval $(thefuck --alias)
 
 # Update everything
-alias update="sudo ./setup-mac; topgrade; yarn global upgrade;"
+alias update="sudo ~/setup-mac; topgrade; yarn global upgrade;"
 
 # Easier navigation:
 alias ..="cd .."

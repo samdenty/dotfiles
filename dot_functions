@@ -45,7 +45,7 @@ set_name() {
   fi
 
   BETTER_PWD="${BETTER_PWD#"$HOME/Projects"/}"
-  BETTER_PWD="${BETTER_PWD#"$HOME"/~}"
+  BETTER_PWD="${BETTER_PWD#"$HOME"/}"
 
   if [ -z "$CMD" ]; then
     echo -ne "\033]0;${BETTER_PWD##*/}\007"

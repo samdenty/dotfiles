@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CURR_VERSION="$(sw_vers -buildVersion)"
+PREV_VERSION="$(cat ~/.previous-version)"
+
+if [ "$CURR_VERSION" != "$PREV_VERSION" ]; then
+  sudo ~/setup-mac
+
+  echo "$CURR_VERSION" >~/.previous-version
+fi
