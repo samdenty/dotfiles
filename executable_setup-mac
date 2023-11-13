@@ -166,7 +166,7 @@ defaults write com.apple.dock showhidden -bool true
 # 12: Notification Center
 # 13: Lock Screen
 # Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
+defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Notification centre
 defaults write com.apple.dock wvous-tr-corner -int 12
