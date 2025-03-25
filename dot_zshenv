@@ -1,5 +1,5 @@
 # Make VSCode the default editor
-export EDITOR="code-insiders"
+export EDITOR="cursor"
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history
