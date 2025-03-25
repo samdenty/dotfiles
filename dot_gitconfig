@@ -196,9 +196,10 @@ insteadOf = "gist:"
 [init]
 
 defaultBranch = main
-[difftool "sourcetree"]
-cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-path =
+
+[difftool "difftastic"]
+cmd = difft "$LOCAL" "$REMOTE"
+
 [mergetool "sourcetree"]
 cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 trustExitCode = true
@@ -208,14 +209,9 @@ smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
 [gpg]
-program = gpg
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	program = /opt/homebrew/bin/gpg
 [difftool "vscode"]
 cmd = code-insiders --wait --diff $LOCAL $REMOTE
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-trustExitCode = true
 [mergetool]
 prompt = false
 [interactive]

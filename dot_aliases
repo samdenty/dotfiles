@@ -32,7 +32,7 @@ alias lsd="ls | grep --color=never '^d'"
 alias cat="bat"
 
 # Shorter VSCode alias
-alias code="code-insiders"
+alias code="cursor"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.

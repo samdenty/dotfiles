@@ -1,8 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# Fig pre block. Keep at the top of this file
-eval "$(fig init zsh pre)"
-
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 DISABLE_AUTO_TITLE="true"
 
 emulate zsh -c "$(direnv export zsh)"
@@ -90,11 +87,22 @@ zplug load
 export BUN_INSTALL="/Users/samdenty/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-eval "$(rbenv init - zsh)"
-
 eval "$(atuin init zsh)"
 
-. "$(brew --prefix asdf)/libexec/asdf.sh"
+eval "$(mise activate zsh)"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+# pnpm
+export PNPM_HOME="/Users/samdenty/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Windsurf
+export PATH="/Users/samdenty/.codeium/windsurf/bin:$PATH"
+
+PATH=~/.console-ninja/.bin:$PATH

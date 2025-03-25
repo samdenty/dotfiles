@@ -1,8 +1,6 @@
 # Make VSCode the default editor
 export EDITOR="code-insiders"
 
-export NPM_TOKEN="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"
-
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history
 # Allow 32³ entries; the default is 1000.
@@ -47,7 +45,5 @@ path+=(
   '~/.cargo/bin'
   '~/.local/bin'
   '/usr/local/opt/mysql-client/bin'
-  '~/.rbenv/bin'
   $(/opt/homebrew/bin/go env GOPATH)/bin
-  $PYENV_ROOT/shims
 )
